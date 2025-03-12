@@ -329,7 +329,7 @@ install_dependencies(){
 local is_dep=1
 local is_nexttrace=1
 local is_speedtest=1
-if ! jq --version >/dev/null 2>&1||! curl --version >/dev/null 2>&1||! command -v convert >/dev/null 2>&1||! command -v mtr >/dev/null 2>&1||! command -v iperf3 >/dev/null 2>&1;then
+if ! jq --version >/dev/null 2>&1||! curl --version >/dev/null 2>&1||! command -v convert >/dev/null 2>&1||! command -v mtr >/dev/null 2>&1||! command -v iperf3 >/dev/null 2>&1||! command -v stun >/dev/null 2>&1;then
 is_dep=0
 fi
 if ! command -v nexttrace >/dev/null 2>&1;then
@@ -420,29 +420,29 @@ local usesudo="sudo"
 fi
 case $package_manager in
 apt)$usesudo apt update
-$usesudo $install_command jq curl imagemagick mtr iperf3
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun
 ;;
 dnf|yum)$usesudo $install_command epel-release
 $usesudo $package_manager makecache
-$usesudo $install_command jq curl ImageMagick mtr iperf3
+$usesudo $install_command jq curl ImageMagick mtr iperf3 stun
 ;;
 pacman)$usesudo pacman -Sy
-$usesudo $install_command jq curl imagemagick mtr iperf3
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun
 ;;
 apk)$usesudo apk update
-$usesudo $install_command jq curl imagemagick mtr iperf3
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun
 ;;
 pkg)$usesudo $package_manager update
-$usesudo $package_manager $install_command jq curl imagemagick mtr iperf3
+$usesudo $package_manager $install_command jq curl imagemagick mtr iperf3 stun
 ;;
 brew)eval "$(/opt/homebrew/bin/brew shellenv)"
-$install_command jq curl imagemagick mtr iperf3
+$install_command jq curl imagemagick mtr iperf3 stun
 ;;
 zypper)$usesudo zypper refresh
-$usesudo $install_command jq curl imagemagick mtr iperf3
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun
 ;;
 xbps)$usesudo xbps-install -Sy
-$usesudo $install_command jq curl imagemagick mtr iperf3
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun
 esac
 }
 install_speedtest(){
