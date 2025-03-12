@@ -2284,11 +2284,11 @@ show_tail)
 [[ mode_json -eq 1 ]]&&echo -ne "\r$netdata\n"
 }
 adapt_locale
+get_ipv4
+get_ipv6
 get_opts "$@"
 install_dependencies
 generate_random_user_agent
-get_ipv4
-get_ipv6
 is_valid_ipv4 $IPV4
 is_valid_ipv6 $IPV6
 set_language
