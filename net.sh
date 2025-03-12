@@ -556,7 +556,7 @@ return 1
 }
 get_ipv4(){
 local response
-local API_NET=("myip.check.place" "ip.sb" "ping0.cc" "icanhazip.com" "api64.ipify.org" "ifconfig.co" "ident.me")
+local API_NET=("ip.sb" "ping0.cc" "icanhazip.com" "api64.ipify.org" "ifconfig.co" "ident.me")
 for p in "${API_NET[@]}";do
 response=$(curl $CurlARG -s4 --max-time 8 "$p")
 if [[ $? -eq 0 && ! $response =~ error ]];then
@@ -595,7 +595,7 @@ return 1
 }
 get_ipv6(){
 local response
-local API_NET=("myip.check.place" "ip.sb" "ping0.cc" "icanhazip.com" "api64.ipify.org" "ifconfig.co" "ident.me")
+local API_NET=("ip.sb" "ping0.cc" "icanhazip.com" "api64.ipify.org" "ifconfig.co" "ident.me")
 for p in "${API_NET[@]}";do
 response=$(curl $CurlARG -s6k --max-time 8 "$p")
 if [[ $? -eq 0 && ! $response =~ error ]];then
