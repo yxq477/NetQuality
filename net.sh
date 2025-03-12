@@ -367,7 +367,7 @@ if [ $(id -u) -ne 0 ]&&! command -v sudo >/dev/null 2>&1;then
 ERRORcode=3
 fi
 case $ID in
-debian)install_packages "apt" 'DEBIAN_FRONTEND=noninteractive apt-get install -y -o Dpkg::Options::="--force-confold"'
+debian)install_packages "apt" "apt-get install -y"
 ;;
 ubuntu|linuxmint)install_packages "apt" "apt-get install -y"
 ;;
