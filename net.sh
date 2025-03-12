@@ -1,5 +1,5 @@
 #!/bin/bash
-script_version="v2025-03-12"
+script_version="v2025-03-13"
 ADLines=0
 check_bash(){
 current_bash_version=$(bash --version|head -n 1|awk '{print $4}'|cut -d'.' -f1)
@@ -340,7 +340,7 @@ is_speedtest=0
 fi
 if [[ $is_dep -eq 0 || $is_nexttrace -eq 0 || $is_speedtest -eq 0 ]];then
 echo -e "Lacking necessary dependencies."
-[[ $is_dep -eq 0 ]]&&echo -e "Packages $Font_I${Font_Cyan}jq curl imagemagick$Font_Suffix will be installed using ${Font_Green}package manager$Font_Suffix."
+[[ $is_dep -eq 0 ]]&&echo -e "Packages $Font_I${Font_Cyan}jq curl imagemagick mtr iperf3 stun bc$Font_Suffix will be installed using ${Font_Green}package manager$Font_Suffix."
 [[ $is_nexttrace -eq 0 ]]&&echo -e "Application $Font_I${Font_Cyan}nexttrace$Font_Suffix will be installed via $Font_Green${Font_I}curl nxtrace.org/nt |bash$Font_Suffix by ${Font_U}https://www.nxtrace.org/$Font_Suffix official."
 [[ $is_speedtest -eq 0 ]]&&echo -e "Application $Font_I${Font_Cyan}speedtest$Font_Suffix will be installed using ${Font_B}Speedtest.net$Font_Suffix official installation method ${Font_U}https://www.speedtest.net/apps/cli$Font_Suffix."
 if [[ $mode_yes -eq 0 ]];then
@@ -430,7 +430,7 @@ pacman)$usesudo pacman -Sy
 $usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
 ;;
 apk)$usesudo apk update
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
+$usesudo $install_command jq curl imagemagick mtr iperf3 bc
 ;;
 pkg)$usesudo $package_manager update
 $usesudo $package_manager $install_command jq curl imagemagick mtr iperf3 stun bc
