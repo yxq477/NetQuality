@@ -2283,14 +2283,14 @@ show_tail)
 [[ mode_json -eq 1 ]]&&save_json $2
 [[ mode_json -eq 1 ]]&&echo -ne "\r$netdata\n"
 }
+generate_random_user_agent
 adapt_locale
 get_ipv4
 get_ipv6
-get_opts "$@"
-install_dependencies
-generate_random_user_agent
 is_valid_ipv4 $IPV4
 is_valid_ipv6 $IPV6
+get_opts "$@"
+install_dependencies
 set_language
 if [[ $ERRORcode -ne 0 ]];then
 echo -ne "\r$Font_B$Font_Red${swarn[$ERRORcode]}$Font_Suffix\n"
