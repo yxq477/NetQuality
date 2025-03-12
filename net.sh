@@ -329,7 +329,7 @@ install_dependencies(){
 local is_dep=1
 local is_nexttrace=1
 local is_speedtest=1
-if ! jq --version >/dev/null 2>&1||! curl --version >/dev/null 2>&1||! command -v convert >/dev/null 2>&1||! command -v mtr >/dev/null 2>&1||! command -v iperf3 >/dev/null 2>&1||! command -v stun >/dev/null 2>&1;then
+if ! jq --version >/dev/null 2>&1||! curl --version >/dev/null 2>&1||! command -v convert >/dev/null 2>&1||! command -v mtr >/dev/null 2>&1||! command -v iperf3 >/dev/null 2>&1||! command -v stun >/dev/null 2>&1||! bc --version >/dev/null 2>&1;then
 is_dep=0
 fi
 if ! command -v nexttrace >/dev/null 2>&1;then
@@ -420,29 +420,29 @@ local usesudo="sudo"
 fi
 case $package_manager in
 apt)$usesudo apt update
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
 ;;
 dnf|yum)$usesudo $install_command epel-release
 $usesudo $package_manager makecache
-$usesudo $install_command jq curl ImageMagick mtr iperf3 stun
+$usesudo $install_command jq curl ImageMagick mtr iperf3 stun bc
 ;;
 pacman)$usesudo pacman -Sy
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
 ;;
 apk)$usesudo apk update
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
 ;;
 pkg)$usesudo $package_manager update
-$usesudo $package_manager $install_command jq curl imagemagick mtr iperf3 stun
+$usesudo $package_manager $install_command jq curl imagemagick mtr iperf3 stun bc
 ;;
 brew)eval "$(/opt/homebrew/bin/brew shellenv)"
-$install_command jq curl imagemagick mtr iperf3 stun
+$install_command jq curl imagemagick mtr iperf3 stun bc
 ;;
 zypper)$usesudo zypper refresh
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
 ;;
 xbps)$usesudo xbps-install -Sy
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
 esac
 }
 install_speedtest(){
