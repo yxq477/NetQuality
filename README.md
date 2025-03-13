@@ -106,6 +106,8 @@ bash <(curl -Ls Net.Check.Place) -f
 
 - 感谢Kakan，你为脚本提供了宝贵的参考意见
 
+- 感谢[V.PS](https://v.ps/)/[Bage](https://www.bagevm.com/)/[丽萨主机](https://lisahost.com/)提供服务器支持
+
 
 **Stars History:**
 
@@ -114,6 +116,3 @@ bash <(curl -Ls Net.Check.Place) -f
 **History of daily runs:**
 
 ![History of daily runs](https://hits.seeyoufarm.com/api/count/graph/dailyhits.svg?url=https://net.check.place&date=20241109)
-
-- 感谢[V.PS](https://v.ps/)/[Bage](https://www.bagevm.com/)/[丽萨主机](https://lisahost.com/)提供服务器支持
-
