@@ -112,3 +112,11 @@ bash <(curl -Ls Net.Check.Place) -f
 
 - Thanks to [V.PS](https://v.ps/)/[Bage](https://www.bagevm.com/)/[LisaHost](https://lisahost.com/) for server support.
 
+
+**Stars History:**
+
+![Stargazers over time](https://starchart.cc/xykt/NetQuality.svg?background=%23FFFFFF&axis=%23333333&line=%2377ff77)
+
+**History of daily runs:**
+
+![History of daily runs](https://hits.seeyoufarm.com/api/count/graph/dailyhits.svg?url=https://net.check.place&date=20241109)
