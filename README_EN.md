@@ -72,6 +72,12 @@ bash <(curl -Ls Net.Check.Place) -l cn|en
 bash <(curl -Ls Net.Check.Place) -j
 ```
 
+##### Skip checking OS and dependencies:
+
+```bash
+bash <(curl -Ls Net.Check.Place) -n
+```
+
 ##### Auto-install dependencies:
 
 ```bash
@@ -85,6 +91,8 @@ bash <(curl -Ls Net.Check.Place) -f
 ```
 
 ## Script Updates
+
+2025/03/13 22:40 Add -n for no checking OS & dependencies
 
 2025/03/12 17:00 Script Released
 
