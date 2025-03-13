@@ -111,6 +111,7 @@ declare display_max_len=80
 declare mode_ping=0
 declare mode_low=0
 declare mode_json=0
+declare mode_no=0
 declare mode_yes=0
 declare mode_skip=""
 declare ping_test_count=10
@@ -118,13 +119,14 @@ declare pingww_test_count=12
 declare netdata
 shelp_lines=(
 "NETWORK QUALITY CHECK SCRIPT"
-"Usage: bash <(curl -sL Net.Check.Place) [-4] [-6] [-f] [-h] [-j] [-l cn|en] [-y] [-L] [-P] [-S 1234567]"
+"Usage: bash <(curl -sL Net.Check.Place) [-4] [-6] [-f] [-h] [-j] [-l cn|en] [-n] [-y] [-L] [-P] [-S 1234567]"
 "            -4                             Test IPv4"
 "            -6                             Test IPv6"
 "            -f                             Show full IP on reports"
 "            -h                             Help information"
 "            -j                             Json output"
 "            -l cn|en                       Specify script language"
+"            -n                             No OS or dependencies check"
 "            -y                             Install dependencies without interupt"
 "            -L                             Low data mode"
 "            -P                             Ping mode"
@@ -2046,7 +2048,7 @@ echo -ne "\r$Font_I${stail[stoday]}${stail[today]}${stail[stotal]}${stail[total]
 echo -e ""
 }
 get_opts(){
-while getopts "l:S:fhjyLP46" opt;do
+while getopts "l:S:fhjnyLP46" opt;do
 case $opt in
 4)if
 [[ IPV4check -ne 0 ]]
@@ -2071,6 +2073,8 @@ h)show_help
 j)mode_json=1
 ;;
 l)LANG=$OPTARG
+;;
+n)mode_no=1
 ;;
 y)mode_yes=1
 ;;
@@ -2290,7 +2294,7 @@ get_ipv6
 is_valid_ipv4 $IPV4
 is_valid_ipv6 $IPV6
 get_opts "$@"
-install_dependencies
+[[ mode_no -eq 0 ]]&&install_dependencies
 set_language
 if [[ $ERRORcode -ne 0 ]];then
 echo -ne "\r$Font_B$Font_Red${swarn[$ERRORcode]}$Font_Suffix\n"
