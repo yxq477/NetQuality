@@ -70,6 +70,11 @@ bash <(curl -Ls Net.Check.Place) -l cn|en
 bash <(curl -Ls Net.Check.Place) -j
 ````
 
+##### 跳过检测系统及安装依赖：
+````bash
+bash <(curl -Ls Net.Check.Place) -n
+````
+
 ##### 自动安装依赖：
 ````bash
 bash <(curl -Ls Net.Check.Place) -y
@@ -82,6 +87,8 @@ bash <(curl -Ls Net.Check.Place) -f
 
 
 ## 脚本更新
+
+2025/03/13 22:40 增加-n参数，跳过OS检测及安装依赖
 
 2025/03/12 17:00 脚本发布
 
