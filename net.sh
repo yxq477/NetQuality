@@ -1,5 +1,5 @@
 #!/bin/bash
-script_version="v2025-03-13"
+script_version="v2025-03-15"
 ADLines=0
 check_bash(){
 current_bash_version=$(bash --version|head -n 1|awk '{print $4}'|cut -d'.' -f1)
@@ -1552,7 +1552,7 @@ bar_pid="$!"&&disown "$bar_pid"
 trap "kill_progress_bar" RETURN
 for ((i=1; i<=maxtry; i++));do
 port=$((RANDOM%(portu-portl+1)+portl))
-local response=$(timeout 20 iperf3 $ipv$sendrecv -J -c "$server" -p "$port" 2>&1)
+local response=$(timeout 20 iperf3 $ipv$sendrecv -J -t 6 -c "$server" -p "$port" 2>&1)
 if [[ -n $response && $response != *"iperf3: error"* && $response != *"\"error\":"* ]];then
 local bits_per_second=$(echo "$response"|jq -r '.end.sum_received.bits_per_second')
 local retransmits=$(echo "$response"|jq -r '.end.sum_sent.retransmits')
