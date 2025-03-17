@@ -314,6 +314,9 @@ stail[today]=$(cat "$count_file"|tail -3|head -n 1|awk '{print $5}')
 stail[total]=$(cat "$count_file"|tail -3|head -n 1|awk '{print $7}')
 }
 show_progress_bar(){
+show_progress_bar_ "$@" 1>&2
+}
+show_progress_bar_(){
 local bar="\u280B\u2819\u2839\u2838\u283C\u2834\u2826\u2827\u2807\u280F"
 local n=${#bar}
 while sleep 0.1;do
