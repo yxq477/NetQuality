@@ -2,9 +2,11 @@
 script_version="v2025-03-20"
 ADLines=0
 check_bash(){
-current_bash_version=$(bash --version|head -n 1|awk '{print $4}'|cut -d'.' -f1)
-if [ "$current_bash_version" = "0" ]||[ "$current_bash_version" = "1" ]||[ "$current_bash_version" = "2" ]||[ "$current_bash_version" = "3" ];then
-echo "ERROR: Bash version is lower than 4.0!"
+current_bash_version=$(bash --version|head -n 1|awk '{print $4}')
+major_version=$(echo "$current_bash_version"|cut -d'.' -f1)
+minor_version=$(echo "$current_bash_version"|cut -d'.' -f2)
+if [ "$major_version" -lt 4 ]||{ [ "$major_version" -eq 4 ]&&[ "$minor_version" -lt 3 ];};then
+echo "ERROR: Bash version is $current_bash_version lower than 4.3!"
 echo "Tips: Run the following script to automatically upgrade Bash."
 echo "bash <(curl -sL https://raw.githubusercontent.com/xykt/IPQuality/main/ref/upgrade_bash.sh)"
 exit 0
