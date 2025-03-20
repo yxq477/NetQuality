@@ -334,7 +334,7 @@ install_dependencies(){
 local is_dep=1
 local is_nexttrace=1
 local is_speedtest=1
-if ! jq --version >/dev/null 2>&1||! curl --version >/dev/null 2>&1||! command -v convert >/dev/null 2>&1||! command -v mtr >/dev/null 2>&1||! command -v iperf3 >/dev/null 2>&1||! command -v stun >/dev/null 2>&1||! bc --version >/dev/null 2>&1;then
+if ! jq --version >/dev/null 2>&1||! curl --version >/dev/null 2>&1||! command -v convert >/dev/null 2>&1||! command -v mtr >/dev/null 2>&1||! command -v iperf3 >/dev/null 2>&1||(! command -v stun >/dev/null 2>&1&&! command -v apk >/dev/null 2>&1)||! bc --version >/dev/null 2>&1||! command -v free >/dev/null 2>&1;then
 is_dep=0
 fi
 if ! command -v nexttrace >/dev/null 2>&1;then
@@ -425,29 +425,29 @@ local usesudo="sudo"
 fi
 case $package_manager in
 apt)$usesudo apt update
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc procps
 ;;
 dnf|yum)$usesudo $install_command epel-release
 $usesudo $package_manager makecache
-$usesudo $install_command jq curl ImageMagick mtr iperf3 stun bc
+$usesudo $install_command jq curl ImageMagick mtr iperf3 stun bc procps-ng
 ;;
 pacman)$usesudo pacman -Sy
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc procps-ng
 ;;
 apk)$usesudo apk update
-$usesudo $install_command jq curl imagemagick mtr iperf3 bc
+$usesudo $install_command jq curl imagemagick mtr iperf3 bc procps
 ;;
 pkg)$usesudo $package_manager update
-$usesudo $package_manager $install_command jq curl imagemagick mtr iperf3 stun bc
+$usesudo $package_manager $install_command jq curl imagemagick mtr iperf3 stun bc procps
 ;;
 brew)eval "$(/opt/homebrew/bin/brew shellenv)"
-$install_command jq curl imagemagick mtr iperf3 stun bc
+$install_command jq curl imagemagick mtr iperf3 stun bc procps
 ;;
 zypper)$usesudo zypper refresh
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc procps
 ;;
 xbps)$usesudo xbps-install -Sy
-$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc
+$usesudo $install_command jq curl imagemagick mtr iperf3 stun bc procps-ng
 esac
 }
 install_speedtest(){
