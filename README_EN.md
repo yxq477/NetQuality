@@ -98,6 +98,17 @@ bash <(curl -Ls Net.Check.Place) -f
 
 ## Contributions
 
+**Server Sponsor:**
+
+| Sponsor | Logo | Link | 
+| - | - | - | 
+| V.PS | ![vps_logo](https://raw.githubusercontent.com/xykt/NetQuality/main/res/sponsor/logo_vps.png) | [https://v.ps](https://v.ps)| 
+| BAGE | ![bage_logo](https://raw.githubusercontent.com/xykt/NetQuality/main/res/sponsor/logo_bage.png) | [https://bagevm.com](https://bagevm.com)|
+| LisaHost | ![lisa_logo](https://raw.githubusercontent.com/xykt/NetQuality/main/res/sponsor/logo_lisa.png) | [https://lisahost.com](https://lisahost.com)|
+| DreamCloud | ![dreamcloud_logo](https://raw.githubusercontent.com/xykt/NetQuality/main/res/sponsor/logo_dreamcloud.png) | [https://as211392.com/](https://as211392.com/)|
+
+**Only accepting merchants with long-term stable operations and good reputation*
+
 **Acknowledgments:**
 
 - Special thanks to [GlobalSign@Nodeseek](https://www.nodeseek.com/space/5813#/general) for providing a stable and reliable three-network test address, laying a solid foundation for one of the script's most important features.
@@ -109,8 +120,6 @@ bash <(curl -Ls Net.Check.Place) -f
 - Thanks to Si for important recommendations on script functionality and formatting.
 
 - Thanks to Kakan for providing valuable reference suggestions.
-
-- Thanks to [V.PS](https://v.ps/)/[Bage](https://www.bagevm.com/)/[LisaHost](https://lisahost.com/) for server support.
 
 
 **Stars History:**
