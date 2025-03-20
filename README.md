@@ -94,6 +94,17 @@ bash <(curl -Ls Net.Check.Place) -f
 
 ## 脚本贡献
 
+**Server Sponsor:**
+
+| 赞助商| 商标 | 网址 | 
+| - | - | - | 
+| V.PS | ![vps_logo](https://raw.githubusercontent.com/xykt/NetQuality/main/res/sponsor/logo_vps.png) | [https://v.ps](https://v.ps)| 
+| BAGE | ![bage_logo](https://raw.githubusercontent.com/xykt/NetQuality/main/res/sponsor/logo_bage.png) | [https://bagevm.com](https://bagevm.com)|
+| 丽萨主机 | ![lisa_logo](https://raw.githubusercontent.com/xykt/NetQuality/main/res/sponsor/logo_lisa.png) | [https://lisahost.com](https://lisahost.com)|
+| DreamCloud | ![dreamcloud_logo](https://raw.githubusercontent.com/xykt/NetQuality/main/res/sponsor/logo_dreamcloud.png) | [https://as211392.com/](https://as211392.com/)|
+
+**仅接受长期稳定运营，信誉良好的商家*
+
 **Acknowledgments:**
 
 - 感谢[GlobalSign@Nodeseek](https://www.nodeseek.com/space/5813#/general)提供稳定可靠的三网测试地址，你的付出为脚本最重要的功能之一奠定了坚实基础
@@ -105,8 +116,6 @@ bash <(curl -Ls Net.Check.Place) -f
 - 感谢Si，你为脚本的功能及排版提供了重要建议参考
 
 - 感谢Kakan，你为脚本提供了宝贵的参考意见
-
-- 感谢[V.PS](https://v.ps/)/[Bage](https://www.bagevm.com/)/[丽萨主机](https://lisahost.com/)提供服务器支持
 
 
 **Stars History:**
