@@ -1,5 +1,5 @@
 #!/bin/bash
-script_version="v2025-03-15"
+script_version="v2025-03-20"
 ADLines=0
 check_bash(){
 current_bash_version=$(bash --version|head -n 1|awk '{print $4}'|cut -d'.' -f1)
@@ -455,35 +455,6 @@ if [ "$(uname)" == "Darwin" ];then
 brew tap teamookla/speedtest
 brew update
 brew install speedtest --force
-elif [ -f /etc/os-release ];then
-. /etc/os-release
-case $ID in
-ubuntu|debian|linuxmint)sudo apt-get install -y curl
-curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh|sudo bash
-sudo apt-get install -y speedtest
-;;
-fedora|centos|rhel|almalinux|rocky|anolis)if
-command -v dnf >/dev/null 2>&1
-then
-curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh|sudo bash
-sudo dnf install -y speedtest
-else
-curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.rpm.sh|sudo bash
-sudo yum install -y speedtest
-fi
-;;
-*)local sys_type=""
-local sysarch="$(uname -m)"
-case "$sysarch" in
-"x86_64"|"x86"|"amd64"|"x64")sys_type="x86_64";;
-"i386"|"i686")sys_type="i386";;
-"aarch64"|"armv7l"|"armv8"|"armv8l")sys_type="aarch64";;
-*)echo "Unsupported architecture"
-exit 1
-esac
-sudo curl -o /usr/bin/speedtest "https://cdn.jsdelivr.net/gh/xykt/NetQuality@main/ref/speedtest/speedtest-$sys_type"
-sudo chmod +x /usr/bin/speedtest
-esac
 elif [ "$(uname)" == "FreeBSD" ];then
 sudo pkg update&&sudo pkg install -g libidn2 ca_root_nss
 freebsd_version=$(freebsd-version|cut -d '-' -f 1)
