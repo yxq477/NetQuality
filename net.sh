@@ -1,8 +1,8 @@
 #!/bin/bash
-script_version="v2025-03-20"
+script_version="v2025-03-21"
 ADLines=0
 check_bash(){
-current_bash_version=$(bash --version|head -n 1|awk '{print $4}')
+current_bash_version=$(bash --version|head -n 1|awk '{for(i=1;i<=NF;i++) if ($i ~ /^[0-9]+\.[0-9]+(\.[0-9]+)?/) print $i}')
 major_version=$(echo "$current_bash_version"|cut -d'.' -f1)
 minor_version=$(echo "$current_bash_version"|cut -d'.' -f2)
 if [ "$major_version" -lt 4 ]||{ [ "$major_version" -eq 4 ]&&[ "$minor_version" -lt 3 ];};then
