@@ -1,5 +1,5 @@
 #!/bin/bash
-script_version="v2025-03-21"
+script_version="v2025-03-25"
 ADLines=0
 check_bash(){
 current_bash_version=$(bash --version|head -n 1|awk '{for(i=1;i<=NF;i++) if ($i ~ /^[0-9]+\.[0-9]+(\.[0-9]+)?/) print $i}')
@@ -256,7 +256,7 @@ sbgp[title]="一、BGP信息（${Font_I}BGP.TOOLS & HE.NET$Font_Suffix）"
 sbgp[ipinfo]="注册信息：          "
 sbgp[country]="地区：              "
 sbgp[address]="地址：              "
-sbgp[geofeed]="地理数据共给：      "
+sbgp[geofeed]="地理数据供给：      "
 sbgp[date]="注册/修改日期：     "
 sbgp[neighbor]="活跃邻居：          "
 slocal[title]="二、本地策略"
@@ -305,15 +305,10 @@ stail[link]="$Font_I报告链接：$Font_U"
 *)echo -ne "ERROR: Language not supported!"
 esac
 }
-countRunTimes(){
-if ! mktemp -u --suffix=RRC &>/dev/null;then
-count_file=$(mktemp)
-else
-count_file=$(mktemp --suffix=RRC)
-fi
-RunTimes=$(curl $CurlARG -s --max-time 10 "https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fnet.check.place&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" >"$count_file")
-stail[today]=$(cat "$count_file"|tail -3|head -n 1|awk '{print $5}')
-stail[total]=$(cat "$count_file"|tail -3|head -n 1|awk '{print $7}')
+countRunTimes() {
+local RunTimes=$(curl ${CurlARG} -s --max-time 10 "https://hits.xykt.de/net?action=hit" 2>&1)
+stail[today]=$(echo "${RunTimes}"|jq '.daily')
+stail[total]=$(echo "${RunTimes}"|jq '.total')
 }
 show_progress_bar(){
 show_progress_bar_ "$@" 1>&2
