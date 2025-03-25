@@ -121,7 +121,7 @@ bash <(curl -Ls Net.Check.Place) -f
 
 - Thanks to [Sherlock@Nodeseek](https://www.nodeseek.com/space/13352#/general) for valuable suggestions on functionality and aesthetics.
 
-- Thanks to [Jiushen@Nodeseek](https://www.nodeseek.com/space/9#/general) for technical support and valuable feedback.
+- Thanks to [酒神@Nodeseek](https://www.nodeseek.com/space/9#/general) for technical support and valuable feedback.
 
 - Thanks to Si for important recommendations on script functionality and formatting.
 
@@ -132,6 +132,3 @@ bash <(curl -Ls Net.Check.Place) -f
 
 ![Stargazers over time](https://starchart.cc/xykt/NetQuality.svg?background=%23FFFFFF&axis=%23333333&line=%2377ff77)
 
-**History of daily runs:**
-
-![History of daily runs](https://hits.seeyoufarm.com/api/count/graph/dailyhits.svg?url=https://net.check.place&date=20241109)
