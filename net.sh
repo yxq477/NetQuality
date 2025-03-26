@@ -437,7 +437,14 @@ $usesudo $install_command jq curl imagemagick mtr iperf3 bc procps
 pkg)$usesudo $package_manager update
 $usesudo $package_manager $install_command jq curl imagemagick mtr iperf3 stun bc procps
 ;;
-brew)eval "$(/opt/homebrew/bin/brew shellenv)"
+brew)HOMEBREW_PREFIX=$(
+  case "$(uname -s)" in
+    Darwin) [ "$(uname -m)" = "arm64" ] && echo "/opt/homebrew" || echo "/usr/local" ;;
+    Linux) echo "/home/linuxbrew/.linuxbrew" ;;
+    *) echo ""; exit 1 ;;
+  esac
+)
+[ -x "$HOMEBREW_PREFIX/bin/brew" ] && eval "$($HOMEBREW_PREFIX/bin/brew shellenv)" || { echo "Homebrew not found"; exit 1; }
 $install_command jq curl imagemagick mtr iperf3 stun bc procps
 ;;
 zypper)$usesudo zypper refresh
